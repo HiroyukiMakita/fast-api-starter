@@ -9,6 +9,8 @@ ARG POETRY_VERSION
 ARG PYTHON_PORT
 
 RUN apt-get -y update \
+    && apt-get -y install \
+    sudo git curl vim less \
     # 一般ユーザーを作成、sudo グループに入れる
     && useradd -m --uid ${CONTAINER_USER_ID} --groups sudo ${CONTAINER_USER_NAME} \
     # sudo 時のパスワード入力を省略する
