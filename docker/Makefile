@@ -52,6 +52,11 @@ exec-python:
 	$(eval ARG := -c "cd $(CONTAINER_SOURCE_ROOT) && bash")
 	@$(EXEC)
 
+serve:
+	$(eval CONTAINER := $(PYTHON))
+	$(eval ARG := -c "cd $(CONTAINER_SOURCE_ROOT) && poetry run uvicorn main:app --host=0.0.0.0 --reload")
+	@$(EXEC)
+
 down:
 	@$(DOWN)
 
